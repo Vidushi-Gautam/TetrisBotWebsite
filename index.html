@@ -125,7 +125,7 @@
         }
 
         /* Hero Section */
-        .hero {
+        /* .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -133,9 +133,20 @@
             position: relative;
             padding: 6rem 2rem;
             overflow: hidden;
+        } */
+
+        .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 6rem 2rem;
+        overflow: hidden;
+        background: var(--navy);
         }
 
-        .hero-bg {
+        /* .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
@@ -145,9 +156,36 @@
                 radial-gradient(ellipse at 20% 50%, rgba(248, 113, 113, 0.15) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 20%, rgba(56, 189, 248, 0.1) 0%, transparent 40%),
                 radial-gradient(ellipse at 60% 80%, rgba(248, 113, 113, 0.1) 0%, transparent 40%);
+        } */
+
+        .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            radial-gradient(ellipse at 20% 50%, rgba(248, 113, 113, 0.15) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 20%, rgba(56, 189, 248, 0.1) 0%, transparent 40%),
+            radial-gradient(ellipse at 60% 80%, rgba(248, 113, 113, 0.1) 0%, transparent 40%);
+        pointer-events: none;
         }
 
         .hero-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(248, 113, 113, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(248, 113, 113, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+            pointer-events: none;
+        }
+
+        /* .hero-grid {
             position: absolute;
             top: 0;
             left: 0;
@@ -158,7 +196,7 @@
                 linear-gradient(90deg, rgba(248, 113, 113, 0.03) 1px, transparent 1px);
             background-size: 60px 60px;
             mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
-        }
+        } */
 
         .hero-content {
             max-width: 1200px;
@@ -518,12 +556,21 @@
         }
 
         /* Results Section */
-        .results-showcase {
+        /* .results-showcase {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 2rem;
             margin-bottom: 3rem;
+        } */
+
+        .results-showcase {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
+
 
         @media (max-width: 900px) {
             .results-showcase {
@@ -1141,10 +1188,10 @@ Workbench / Workspace .............. <span class="number">1x</span>
             <p class="section-subtitle">Demonstration and performance metrics</p>
         </div>
 
-        <div class="results-showcase reveal">
+        <!-- <div class="results-showcase reveal">
             <div class="video-container">
-                <!-- Replace YOUR_VIDEO_ID with actual YouTube video ID -->
-                <div class="video-placeholder" id="videoPlaceholder">
+                 Replace YOUR_VIDEO_ID with actual YouTube video ID -->
+                <!-- <div class="video-placeholder" id="videoPlaceholder">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
                         <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon>
@@ -1153,7 +1200,12 @@ Workbench / Workspace .............. <span class="number">1x</span>
                     <small style="margin-top: 0.5rem; opacity: 0.7;">Add YouTube link to embed</small>
                 </div>
                 <iframe src="https://drive.google.com/file/d/1maWQrirtP7OlnlY6r3DweBkdh-yhEw6O/preview" width="640" height="480"></iframe>
-            </div>
+            </div> -->
+        
+        <div class="results-showcase reveal" style="display: flex; flex-direction: column; align-items: center;">
+            <div class="video-container" style="width: 100%; max-width: 900px;">
+                <iframe src="https://drive.google.com/file/d/1maWQrirtP7OlnlY6r3DweBkdh-yhEw6O/preview" allowfullscreen></iframe>
+            </div>    
 
             <!-- <div class="stats-grid">
                 <div class="card stat-card">
@@ -1245,7 +1297,7 @@ Workbench / Workspace .............. <span class="number">1x</span>
             <div class="design-visual reveal">
                 <h4 style="margin-bottom: 1rem; color: var(--coral-light);">Future Improvements</h4>
                 <ul class="design-list">
-                    <li>Stabilize pose readings with Kalman filtering</li>
+                    <!-- <li>Stabilize pose readings with Kalman filtering</li> -->
                     <li>Implement automatic camera calibration</li>
                     <li>Expand to varied box shapes and solid objects</li>
                     <li>Add dynamic object detection via deep learning</li>
@@ -1253,6 +1305,12 @@ Workbench / Workspace .............. <span class="number">1x</span>
                     <li>Design custom gripper for external grasps</li>
                     <li>CV-based automatic dimension estimation</li>
                 </ul>
+
+                <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(15, 23, 42, 0.5); border-radius: 16px; border: 1px solid rgba(248, 113, 113, 0.2);">
+                    <h4 style="margin-bottom: 1rem; color: var(--coral-light);">Custom Gripper Design</h4>
+                    <img src="custom-gripper.png" alt="CAD model of custom gripper attachment for controlled object release" style="width: 100%; border-radius: 12px; margin-bottom: 1rem;">
+                    <p style="color: var(--gray); font-size: 0.9rem;">CAD prototype of a custom gripper attachment designed to enable steady, controlled release of objects during placement. This would improve stacking precision and reduce placement errors.</p>
+                </div>
 
                 <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(248, 113, 113, 0.1); border-radius: 12px; border: 1px solid rgba(248, 113, 113, 0.2);">
                     <h4 style="margin-bottom: 0.5rem; color: var(--coral-light);">Key Takeaway</h4>
