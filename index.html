@@ -1138,11 +1138,11 @@
             <div class="impl-grid">
                 <div class="card impl-card">
                     <h4>ArUco Detection Node</h4>
-                    <p>Subscribes to camera image topic, detects ArUco markers using OpenCV's cv2.aruco module, and publishes marker IDs with poses.</p>
+                    <p>The AR recognition node uses OpenCV's cv2.aruco module to detect markers through an RGB camera, organises into different marker sizes based on ID, and calculates the 3D pose relative to the camera.</p>
                 </div>
                 <div class="card impl-card">
                     <h4>AR Tag Identification</h4>
-                    <p>Maps marker IDs to object types (boxes vs bin), computes center poses from marker corners, transforms to robot base frame.</p>
+                    <p>From the ArUco node, it retrieves object information for each marker ID, and computes centre offsets for each. It then transforms them to robot's base link frame, and publishes the organised data.</p>
                 </div>
                 <div class="card impl-card">
                     <h4>Custom Messages</h4>
@@ -1150,7 +1150,7 @@
                 </div>
                 <div class="card impl-card">
                     <h4>Pose Stabilization</h4>
-                    <p>Running average filter on pose estimates to reduce noise from ArUco detection variance. Manual calibration offsets for camera-robot alignment.</p>
+                    <p>To combat noise from ArUco detection, a running average filter is applied to pose estimates, and manual calibration offsets are used for camera-robot alignment. Multiple markers could also be used for redundancy and averaging.</p>
                 </div>
             </div>
 
@@ -1187,7 +1187,7 @@
                 </div>
                 <div class="card impl-card">
                     <h4>MoveIt Integration</h4>
-                    <p>MoveIt is used for inverse kinematics, collision-aware trajectory planning, and safe execution with velocity and acceleration constraints.</p>
+                    <p>MoveIt is used for IK trajectory planning together with the custom pose IK planner, collision boxes in the planning scene helps with trajectory planning, and safe execution with velocity and acceleration constraints.</p>
                 </div>
             </div>
 
