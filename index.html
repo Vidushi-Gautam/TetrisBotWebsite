@@ -669,6 +669,18 @@
             margin-top: 2rem;
         }
 
+        /* Large gallery items (e.g., RViz screenshots) */
+        .gallery-item--large {
+            min-height: 300px;
+        }
+
+        @media (min-width: 900px) {
+            .gallery-item--large {
+                grid-column: span 2; /* span two columns on wider screens */
+                min-height: 360px;
+            }
+        }
+
         /* (RViz layout removed; use existing .gallery styles for screenshots) */
 
         .gallery-item {
@@ -1296,12 +1308,12 @@
         <h3 class="reveal" style="margin: 3rem 0 1.5rem; color: var(--coral-light);">Gallery</h3>
         <!-- RViz screenshots removed; using gallery to display them -->
         <div class="gallery reveal">
-            <div class="gallery-item">
+            <div class="gallery-item gallery-item--large">
                 <img src="collision_objects/collisionObj1.png" alt="RViz: Collision Objects 1" class="img-placeholder" loading="lazy" onerror="this.style.display='none'">
                 <div class="gallery-caption">RViz — Collision objects (view 1)</div>
             </div>
 
-            <div class="gallery-item">
+            <div class="gallery-item gallery-item--large">
                 <img src="collision_objects/collisionObj2.png" alt="RViz: Collision Objects 2" class="img-placeholder" loading="lazy" onerror="this.style.display='none'">
                 <div class="gallery-caption">RViz — Collision objects (view 2)</div>
             </div>
