@@ -669,40 +669,7 @@
             margin-top: 2rem;
         }
 
-        /* RViz screenshots grid */
-        .rviz-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-            align-items: stretch;
-        }
-
-        .rviz-item {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            background: var(--navy-light);
-            border: 1px solid rgba(248, 113, 113, 0.1);
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .rviz-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .rviz-caption {
-            padding: 0.75rem 1rem;
-            background: rgba(15,23,42,0.6);
-            color: var(--gray);
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255,255,255,0.03);
-        }
+        /* (RViz layout removed; use existing .gallery styles for screenshots) */
 
         .gallery-item {
             position: relative;
@@ -1327,21 +1294,17 @@
         </div>
 
         <h3 class="reveal" style="margin: 3rem 0 1.5rem; color: var(--coral-light);">Gallery</h3>
-        <!-- RViz screenshots (placeholders) -->
-        <div class="rviz-grid reveal">
-            <div class="rviz-item">
-                <img src="collision_objects/collisionObj1.png" alt="RViz: Collision Objects 1" loading="lazy" onerror="this.remove(); this.nextElementSibling.style.display='flex'">
-                <div class="img-placeholder" style="display:none">RViz screenshot 1</div>
-                <div class="rviz-caption">RViz — Collision objects (view 1)</div>
+        <!-- RViz screenshots removed; using gallery to display them -->
+        <div class="gallery reveal">
+            <div class="gallery-item">
+                <img src="collision_objects/collisionObj1.png" alt="RViz: Collision Objects 1" class="img-placeholder" loading="lazy" onerror="this.style.display='none'">
+                <div class="gallery-caption">RViz — Collision objects (view 1)</div>
             </div>
 
-            <div class="rviz-item">
-                <img src="collision_objects/collisionObj2.png" alt="RViz: Collision Objects 2" loading="lazy" onerror="this.remove(); this.nextElementSibling.style.display='flex'">
-                <div class="img-placeholder" style="display:none">RViz screenshot 2</div>
-                <div class="rviz-caption">RViz — Collision objects (view 2)</div>
+            <div class="gallery-item">
+                <img src="collision_objects/collisionObj2.png" alt="RViz: Collision Objects 2" class="img-placeholder" loading="lazy" onerror="this.style.display='none'">
+                <div class="gallery-caption">RViz — Collision objects (view 2)</div>
             </div>
-        </div>
-        <div class="gallery reveal">
             <div class="gallery-item">
                 <!-- <div class="img-placeholder">Robot Setup Photo</div> -->
                 <img src="multi-object.png" alt="Multi-object detection" class="img-placeholder">
