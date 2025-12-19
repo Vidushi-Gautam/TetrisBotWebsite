@@ -515,6 +515,26 @@
             font-size: 0.85rem;
             color: var(--gray);
             line-height: 1.8;
+            white-space: pre; /* preserve spacing if needed */
+        }
+
+        /* BOM (Bill of Materials) layout inside code block */
+        .code-block .bom {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--gray);
+        }
+
+        .code-block .bom-line {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.12rem 0;
+        }
+
+        .code-block .bom-section {
+            color: #6B7280;
+            margin: 0.25rem 0;
+            font-size: 0.95rem;
         }
 
         .code-block .keyword { color: var(--coral); }
@@ -1085,17 +1105,17 @@
 
             <h4 style="margin: 2rem 0 1rem; color: var(--coral-light);">Bill of Materials</h4>
             <div class="code-block">
-                <code>
-<span class="comment"># Lab Equipment</span>
-UR5e/UR7e Robot Arm ................ <span class="number">1x</span>
-Robotiq Parallel Gripper ........... <span class="number">1x</span>
-Intel RealSense D435i Camera ....... <span class="number">1x</span>
+                <div class="bom">
+                    <div class="bom-section"><span class="comment"># Lab Equipment</span></div>
+                    <div class="bom-line"><span>UR5e/UR7e Robot Arm</span><span class="number">1x</span></div>
+                    <div class="bom-line"><span>Robotiq Parallel Gripper</span><span class="number">1x</span></div>
+                    <div class="bom-line"><span>Intel RealSense D435i Camera</span><span class="number">1x</span></div>
 
-<span class="comment"># Custom Hardware</span>
-3D Printed Hollow Cubes ............ <span class="number">4x</span>
-ArUco Marker Prints (4x4_50) ....... <span class="number">8x</span>
-Workbench / Workspace .............. <span class="number">1x</span>
-                </code>
+                    <div class="bom-section"><span class="comment"># Custom Hardware</span></div>
+                    <div class="bom-line"><span>3D Printed Hollow Cubes</span><span class="number">4x</span></div>
+                    <div class="bom-line"><span>ArUco Marker Prints (4x4_50)</span><span class="number">8x</span></div>
+                    <div class="bom-line"><span>Workbench / Workspace</span><span class="number">1x</span></div>
+                </div>
             </div>
         </div>
 
@@ -1359,8 +1379,7 @@ Workbench / Workspace .............. <span class="number">1x</span>
         <div class="team-grid reveal">
             <div class="card team-card">
                 <div class="team-avatar">
-                    <img src="profile_pictures/kimberly.jpg" alt="Kimberly" loading="lazy" onerror="this.style.display='none'">
-                    <span class="avatar-initial">K</span>
+                    <img src="profile_pictures/kimberly.png" alt="Kimberly" loading="lazy" onerror="this.style.display='none'">
                 </div>
                 <h3>Kimberly</h3>
                 <!-- <p class="team-role">Perception Lead</p> -->
@@ -1381,7 +1400,6 @@ Workbench / Workspace .............. <span class="number">1x</span>
             <div class="card team-card">
                 <div class="team-avatar">
                     <img src="profile_pictures/KevinYing.png" alt="Kevin" loading="lazy" onerror="this.style.display='none'">
-                    <span class="avatar-initial">K</span>
                 </div>
                 <h3>Kevin</h3>
                 <!-- <p class="team-role">Hardware & Design Lead</p> -->
