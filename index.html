@@ -653,9 +653,6 @@
             .model-large {
                 height: 360px;
             }
-            .model-large.rotated {
-                transform: rotateY(90deg);
-            }
         }
 
         .code-block .bom-section {
@@ -1583,7 +1580,7 @@
 
                 <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(15, 23, 42, 0.5); border-radius: 16px; border: 1px solid rgba(248, 113, 113, 0.2);">
                     <h4 style="margin-bottom: 1rem; color: var(--coral-light);">Custom Gripper Design</h4>
-                    <model-viewer class="model-large rotated" src="3d_models/gripper.glb" poster="custom-gripper.png" alt="CAD model of custom gripper attachment" camera-controls auto-rotate loading="lazy" exposure="1"></model-viewer>
+                    <model-viewer class="model-large" src="3d_models/gripper.glb" poster="custom-gripper.png" alt="CAD model of custom gripper attachment" camera-controls auto-rotate loading="lazy" exposure="1"></model-viewer>
                     <p style="color: var(--gray); font-size: 0.9rem; margin-top: 1rem;">CAD prototype of a custom gripper attachment designed to slide and deform to allow gripper to overshoot the table during placement, and remove offsets to prevent damage to the end effector</p>
                 </div>
 
