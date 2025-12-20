@@ -502,6 +502,42 @@
             font-size: 0.95rem;
         }
 
+        /* Responsive implementation media (video + image) */
+        .impl-media {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .impl-media .media-card {
+            padding: 1rem;
+        }
+
+        .impl-media .video-container {
+            height: 260px;
+            padding-bottom: 0; /* override aspect padding when used inside impl-media */
+        }
+
+        .impl-media img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (min-width: 900px) {
+            .impl-media {
+                grid-template-columns: 1fr 1fr; /* two columns side-by-side */
+                align-items: start;
+            }
+
+            .impl-media .video-container,
+            .impl-media img {
+                height: 300px;
+            }
+        }
+
         /* Code Block */
         .code-block {
             background: var(--navy);
@@ -693,6 +729,24 @@
             color: var(--gray);
             font-size: 0.95rem;
             text-align: left;
+        }
+
+        /* Ensure video (and poster) fill the card and keep center-cropped */
+        .video-figure,
+        .video-container {
+            position: relative;
+        }
+
+        .video-figure video,
+        .video-container video {
+            position: absolute;
+            inset: 0; /* shorthand for top/right/bottom/left: 0 */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            -webkit-object-fit: cover;
+            object-position: center center;
+            display: block;
         }
 
         .stats-grid {
@@ -1189,27 +1243,6 @@
                     <div class="bom-line"><span>Workbench / Workspace</span><span class="number">1x</span></div>
                 </div>
             </div>
-                    <!-- Split implementation block (under Bill of Materials): video + image -->
-                    <div class="impl-media reveal" style="margin-top:1.5rem;">
-                        <div class="media-card card">
-                            <div class="video-container" style="height: 260px; padding-bottom: 0;">
-                                <figure class="video-figure">
-                                    <video class="main-video" controls playsinline preload="metadata" poster="object-stacking.png" aria-label="Internal grasp demo">
-                                        <source src="videos/internal_grip.mp4" type="video/mp4">
-                                    </video>
-                                    <figcaption class="video-caption" style="color:var(--gray); font-size:0.95rem;">To avoid gripper interference, and allow tight packing, we implemented an internal grasp method by using hollow cubes. We added hollow collision meshes and added custom offsets to allow the end effector to grasp the inside surfaces of the cubes.</figcaption>
-                                </figure>
-                            </div>
-                        </div>
-
-                        <div class="media-card card">
-                            <div style="border-radius:12px; overflow:hidden; background:var(--navy-light); border:1px solid rgba(248,113,113,0.08);">
-                                <img src="multi_marker.png" alt="Simulation visualization" style="width:100%; height:260px; object-fit:cover; display:block;">
-                            </div>
-                            <div class="media-caption" style="margin-top:0.75rem; color:var(--gray); font-size:0.95rem;">To improve collision object stability due to ArUco detection noise, a running average filter is applied to pose estimates, and manual calibration offsets are used for camera-robot alignment. Multiple markers could also be used to define a table surface for redundancy in the event of camera obstructions.</div>
-                        </div>
-                    </div>
-
                     <!-- 3D model previews: replace src with your .glb files in models/ -->
                     <div class="model-grid reveal">
                         <div class="model-card">
@@ -1246,6 +1279,27 @@
                                           auto-rotate>
                             </model-viewer>
                             <div class="model-caption">Bin & Collision Scene</div>
+                        </div>
+                    </div>
+
+                    <!-- Split implementation block (under Bill of Materials): video + image -->
+                    <div class="impl-media reveal" style="margin-top:1.5rem;">
+                        <div class="media-card card">
+                            <div class="video-container" style="height: 260px; padding-bottom: 0;">
+                                <figure class="video-figure">
+                                    <video class="main-video" controls playsinline preload="metadata" poster="object-stacking.png" aria-label="Internal grasp demo">
+                                        <source src="videos/internal_grip.mp4" type="video/mp4">
+                                    </video>
+                                    <figcaption class="video-caption" style="color:var(--gray); font-size:0.95rem;">To avoid gripper interference, and allow tight packing, we implemented an internal grasp method by using hollow cubes. We added hollow collision meshes and added custom offsets to allow the end effector to grasp the inside surfaces of the cubes.</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="media-card card">
+                            <div style="border-radius:12px; overflow:hidden; background:var(--navy-light); border:1px solid rgba(248,113,113,0.08);">
+                                <img src="multi_marker.png" alt="Simulation visualization" style="width:100%; height:260px; object-fit:cover; display:block;">
+                            </div>
+                            <div class="media-caption" style="margin-top:0.75rem; color:var(--gray); font-size:0.95rem;">To improve collision object stability due to ArUco detection noise, a running average filter is applied to pose estimates, and manual calibration offsets are used for camera-robot alignment. Multiple markers could also be used to define a table surface for redundancy in the event of camera obstructions.</div>
                         </div>
                     </div>
         </div>
