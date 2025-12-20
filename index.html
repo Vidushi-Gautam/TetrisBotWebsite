@@ -535,14 +535,25 @@
                 align-items: start;
             }
 
+            /* larger media heights on desktop */
             .impl-media .video-container,
             .impl-media img {
-                height: 300px;
+                height: 340px;
             }
 
-            /* make both media cards the same total height on desktop */
+            /* make both media cards the exact same height on desktop */
             .impl-media .media-card {
-                min-height: 360px;
+                height: 460px; /* fixed height ensures identical card sizes */
+            }
+
+            /* crop iframe horizontally and center it so the video 'covers' the container */
+            .impl-media .video-container iframe {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                width: 130%;
+                height: 100%;
+                transform: translateX(-50%);
             }
         }
 
