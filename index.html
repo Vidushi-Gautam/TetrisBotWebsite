@@ -517,6 +517,58 @@
             gap: 0.75rem;
         }
 
+        /* Perception-specific full-width media block */
+        .perception-media {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .perception-media .media-card {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        /* ensure the top media element fills available card space and doesn't overflow */
+        .perception-media .media-card > div {
+            flex: 1 1 auto;
+            min-height: 0; /* allow flex children to shrink properly */
+        }
+
+        .perception-media .video-container {
+            height: 260px;
+            padding-bottom: 0;
+        }
+
+        @media (min-width: 900px) {
+            .perception-media {
+                grid-template-columns: 1fr 1fr; /* side-by-side in perception */
+                align-items: start;
+            }
+
+            .perception-media .video-container,
+            .perception-media img {
+                height: 340px;
+            }
+
+            .perception-media .media-card {
+                height: 460px; /* match other media card sizing */
+            }
+
+            /* crop and center iframe in perception block */
+            .perception-media .video-container iframe {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                width: 130%;
+                height: 100%;
+                transform: translateX(-50%);
+            }
+        }
+
         .impl-media .video-container {
             height: 260px;
             padding-bottom: 0; /* override aspect padding when used inside impl-media */
@@ -1264,10 +1316,10 @@
                     <div class="media-caption video-caption" style="color:var(--gray); font-size:0.95rem;">To avoid gripper interference, and allow tight packing, we implemented an internal grasp method by using hollow cubes. We added hollow collision meshes and added custom offsets to allow the end effector to grasp the inside surfaces of the cubes.</div>
                 </div>
 
-                <div class="media-card card">
-                    <div style="border-radius:12px; overflow:hidden; background:var(--navy-light); border:1px solid rgba(248,113,113,0.08);">
-                        <img src="multi_marker.png" alt="Simulation visualization" style="width:100%; height:100%; object-fit:cover; display:block;">
-                    </div>
+                    <div class="media-card card">
+                        <div class="video-container" style="border-radius:12px; overflow:hidden; background:var(--navy-light); border:1px solid rgba(248,113,113,0.08); padding-bottom:0; height:100%;">
+                            <img src="multi_marker.png" alt="Simulation visualization" style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
                     <div class="media-caption" style="margin-top:0.75rem; color:var(--gray); font-size:0.95rem;">To combat noise from ArUco detection, a running average filter is applied to pose estimates, and manual calibration offsets are used for camera-robot alignment. Multiple markers could also be used to define a table surface for redundancy in the event of camera obstructions.</div>
                 </div>
 
