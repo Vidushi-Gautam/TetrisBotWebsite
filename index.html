@@ -680,6 +680,21 @@
             color: var(--coral);
         }
 
+        /* Figure + caption for improved video formatting */
+        .video-figure {
+            margin: 0;
+            position: relative;
+            height: 100%;
+        }
+
+        .video-caption {
+            position: relative;
+            margin-top: 0.75rem;
+            color: var(--gray);
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
         .stats-grid {
             display: flex;
             flex-direction: column;
@@ -1330,26 +1345,15 @@
             <h2 class="section-title">Results</h2>
             <p class="section-subtitle">Demonstration and performance metrics</p>
         </div>
-
-        <!-- <div class="results-showcase reveal">
-            <div class="video-container">
-                 Replace YOUR_VIDEO_ID with actual YouTube video ID -->
-                <!-- <div class="video-placeholder" id="videoPlaceholder">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
-                        <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon>
-                    </svg>
-                    <span>Demo Video</span>
-                    <small style="margin-top: 0.5rem; opacity: 0.7;">Add YouTube link to embed</small>
-                </div>
-                <iframe src="https://drive.google.com/file/d/1maWQrirtP7OlnlY6r3DweBkdh-yhEw6O/preview" width="640" height="480"></iframe>
-            </div> -->
         
-        <div class="results-showcase reveal" style="display: flex; flex-direction: column; align-items: center;">
+        <div class="results-showcase reveal">
             <div class="video-container" style="width: 100%; max-width: 900px;">
-                <video controls playsinline preload="metadata" poster="object-stacking.png">
-                    <source src="videos/demo.mp4" type="video/mp4">
-                </video>
+                <figure class="video-figure">
+                    <video class="main-video" controls playsinline preload="metadata" poster="object-stacking.png" aria-label="TetrisBot demo">
+                        <source src="videos/demo.mp4" type="video/mp4">
+                    </video>
+                    <figcaption class="video-caption">Demo — Full system execution showing perception-to-actuation flow and collision-aware motion planning.</figcaption>
+                </figure>
             </div>
 
             <!-- <div class="stats-grid">
