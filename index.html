@@ -1134,10 +1134,10 @@
         </div>
 
         <div class="impl-tabs reveal">
-            <button class="tab-btn active" onclick="showTab('hardware')">Hardware</button>
-            <button class="tab-btn" onclick="showTab('perception')">Perception</button>
-            <button class="tab-btn" onclick="showTab('planning')">Planning & RL</button>
-            <button class="tab-btn" onclick="showTab('actuation')">Actuation</button>
+            <button class="tab-btn active" onclick="showTab('hardware', event)">Hardware</button>
+            <button class="tab-btn" onclick="showTab('perception', event)">Perception</button>
+            <button class="tab-btn" onclick="showTab('planning', event)">Planning & RL</button>
+            <button class="tab-btn" onclick="showTab('actuation', event)">Actuation</button>
         </div>
 
         <div id="hardware" class="impl-content active reveal">
@@ -1508,8 +1508,8 @@
                 </div>
                 <h3>Kevin</h3>
                 <!-- <p class="team-role">Hardware & Design Lead</p> -->
-                <p class="team-bio">Third-year EECS student from Australia. Interested in Control Theory and Industrial Design.</p>
-                <p class="team-contribution"><strong>Contributions:</strong> ArUco detection pipeline, pose estimation, CAD design, systems integration</p>
+                <p class="team-bio">Third-year EECS student from Australia. Interested in HCI Design.</p>
+                <p class="team-contribution"><strong>Contributions:</strong> ArUco detection pipeline, pose estimation, CAD design, systems planning</p>
             </div>
 
             <div class="card team-card">
@@ -1627,11 +1627,12 @@
         }
 
         // Tab switching
-        function showTab(tabId) {
+        function showTab(tabId, ev) {
             document.querySelectorAll('.impl-content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            event.target.classList.add('active');
+            const tab = document.getElementById(tabId);
+            if (tab) tab.classList.add('active');
+            if (ev && ev.target) ev.target.classList.add('active');
         }
 
         // Scroll reveal animation
