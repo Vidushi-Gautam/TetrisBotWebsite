@@ -1247,9 +1247,9 @@
 
         <div class="impl-tabs reveal">
             <button class="tab-btn active" onclick="showTab('perception', event)">Perception</button>
-            <button class="tab-btn" onclick="showTab('hardware', event)">Hardware</button>
             <button class="tab-btn" onclick="showTab('planning', event)">Planning & RL</button>
             <button class="tab-btn" onclick="showTab('actuation', event)">Actuation</button>
+            <button class="tab-btn" onclick="showTab('hardware', event)">Hardware</button>
         </div>
 
         <div id="perception" class="impl-content active reveal">
@@ -1272,7 +1272,7 @@
                         <div class="media-caption" style="margin-top:0.75rem; color:var(--gray); font-size:0.95rem;">To improve collision object stability due to ArUco detection noise, a running average filter is applied to pose estimates, and manual calibration offsets are used for camera-robot alignment. Multiple markers could also be used to define a table surface for redundancy in the event of camera obstructions.</div>
                     </div>
                 </div>
-                
+
                 <div class="card impl-card">
                     <h4>ArUco Detection Node</h4>
                     <p>The AR recognition node uses OpenCV's cv2.aruco module to detect markers through an RGB camera, organises into different marker sizes based on ID, and calculates the 3D pose relative to the camera.</p>
