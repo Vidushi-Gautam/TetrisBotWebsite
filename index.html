@@ -555,6 +555,16 @@
                 height: 100%;
                 transform: translateX(-50%);
             }
+
+            /* Results section demo: crop and center the iframe horizontally as well */
+            .results-showcase .video-container iframe {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                width: 130%;
+                height: 100%;
+                transform: translateX(-50%);
+            }
         }
 
         /* Code Block */
@@ -906,9 +916,6 @@
             font-weight: 700;
             font-size: 2.5rem;
             pointer-events: none;
-        }
-            font-size: 0.85rem;
-            margin-bottom: 0.75rem;
         }
 
         .team-bio {
@@ -1439,12 +1446,10 @@
             <p class="section-subtitle">Demonstration and performance metrics</p>
         </div>
         
-        <div class="results-showcase reveal">
+        <div class="results-showcase reveal" style="display: flex; flex-direction: column; align-items: center;">
             <div class="video-container" style="width: 100%; max-width: 900px;">
-                <figure class="video-figure">
-                    <iframe src="https://drive.google.com/file/d/1maWQrirtP7OlnlY6r3DweBkdh-yhEw6O/preview" title="final demo" allow="autoplay; encrypted-media" frameborder="0" allowfullscreen loading="lazy"></iframe>
-                </figure>
-            </div>
+                <iframe src="https://drive.google.com/file/d/1maWQrirtP7OlnlY6r3DweBkdh-yhEw6O/preview" allowfullscreen></iframe>
+            </div> 
             <div class="video-caption">Demo — Full system execution showing perception-to-actuation flow and collision-aware motion planning.</div>
 
             <!-- <div class="stats-grid">
