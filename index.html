@@ -512,6 +512,9 @@
 
         .impl-media .media-card {
             padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
         .impl-media .video-container {
@@ -535,6 +538,11 @@
             .impl-media .video-container,
             .impl-media img {
                 height: 300px;
+            }
+
+            /* make both media cards the same total height on desktop */
+            .impl-media .media-card {
+                min-height: 360px;
             }
         }
 
@@ -1290,9 +1298,9 @@
                                     <video class="main-video" controls playsinline preload="metadata" poster="object-stacking.png" aria-label="Internal grasp demo">
                                         <source src="videos/internal_grip.mp4" type="video/mp4">
                                     </video>
-                                    <figcaption class="video-caption" style="color:var(--gray); font-size:0.95rem;">To avoid gripper interference, and allow tight packing, we implemented an internal grasp method by using hollow cubes. We added hollow collision meshes and added custom offsets to allow the end effector to grasp the inside surfaces of the cubes.</figcaption>
                                 </figure>
                             </div>
+                            <div class="media-caption video-caption" style="color:var(--gray); font-size:0.95rem;">To avoid gripper interference, and allow tight packing, we implemented an internal grasp method by using hollow cubes. We added hollow collision meshes and added custom offsets to allow the end effector to grasp the inside surfaces of the cubes.</div>
                         </div>
 
                         <div class="media-card card">
@@ -1427,9 +1435,9 @@
                     <video class="main-video" controls playsinline preload="metadata" poster="object-stacking.png" aria-label="TetrisBot demo">
                         <source src="videos/demo.mp4" type="video/mp4">
                     </video>
-                    <figcaption class="video-caption">Demo — Full system execution showing perception-to-actuation flow and collision-aware motion planning.</figcaption>
                 </figure>
             </div>
+            <div class="video-caption">Demo — Full system execution showing perception-to-actuation flow and collision-aware motion planning.</div>
 
             <!-- <div class="stats-grid">
                 <div class="card stat-card">
